@@ -63,13 +63,20 @@
     let key = node.getAttribute('data-key');
     const keys = [];
     if (key) {
+      // IMP: 数组的 key 需要特殊处理，符合 json diff 协议
+      if (
+        node.className.indexOf('jsondiffpatch-deleted') !== -1 &&
+        par.className.indexOf('jsondiffpatch-node-type-array') !== -1
+      ) {
+        key = '_' + key;
+      }
       keys.unshift(key);
       while (par && par !== canvas) {
         key = par.getAttribute('data-key');
-        par = par.parentNode;
         if (key) {
           keys.unshift(key);
         }
+        par = par.parentNode;
       }
     }
     return keys;
@@ -78,9 +85,12 @@
   let allSelectedIndexes = [];
   function getAllSelect() {
     allSelectedIndexes = [];
+    allExcludedIndexes = [];
     return [].filter.call(document.querySelectorAll(`.${ChangedClass}`) || [], item => {
       if (item.checked) {
         allSelectedIndexes.push(item.value.split(keySeparator));
+      } else {
+        allExcludedIndexes.push(item.value.split(keySeparator));
       }
       return item.checked;
     });
@@ -127,7 +137,9 @@
 
     xhr.open('POST', '/patch');
     xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({ version: diffVersion, keys: allSelectedIndexes }));
+    xhr.send(
+      JSON.stringify({ version: diffVersion, keys: allSelectedIndexes, unkeys: allExcludedIndexes })
+    );
 
     xhr.onreadystatechange = function() {
       if (xhr.readyState === 4) {
