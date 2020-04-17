@@ -1,11 +1,11 @@
 {
   "vendors.js": "/sm2tsservice/static/js/vendors.4d7418f8.js",
-  "vendors.js.map": "/sm2tsservice/static/js/vendors.69594b9c396b24f09d15.js.map",
-  "app.js": "/sm2tsservice/static/js/app.69594b9c396b24f09d15.js",
-  "app.js.map": "/sm2tsservice/static/js/app.69594b9c396b24f09d15.js.map",
+  "vendors.js.map": "/sm2tsservice/static/js/vendors.629122bf32e089260cef.js.map",
+  "app.js": "/sm2tsservice/static/js/app.629122bf32e089260cef.js",
+  "app.js.map": "/sm2tsservice/static/js/app.629122bf32e089260cef.js.map",
   "readme.js": "/sm2tsservice/static/js/readme.7c834652.js",
-  "readme.js.map": "/sm2tsservice/static/js/readme.69594b9c396b24f09d15.js.map",
+  "readme.js.map": "/sm2tsservice/static/js/readme.629122bf32e089260cef.js.map",
   "update.js": "/sm2tsservice/static/js/update.74d25931.js",
-  "update.js.map": "/sm2tsservice/static/js/update.69594b9c396b24f09d15.js.map",
+  "update.js.map": "/sm2tsservice/static/js/update.629122bf32e089260cef.js.map",
   "index.html": "/sm2tsservice/index.html"
 }
